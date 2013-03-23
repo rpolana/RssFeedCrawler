@@ -1,0 +1,411 @@
+D, [2012-04-30T14:51:14.821194 #1000] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-04-30T14:51:14.836818 #1000] DEBUG -- :   [1m[35m (15.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2012-04-30T14:51:14.836818 #1000] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+D, [2012-04-30T14:51:14.868068 #1000] DEBUG -- :   [1m[35m (31.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+D, [2012-04-30T14:51:14.868068 #1000] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-04-30T14:51:14.868068 #1000]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-04-30T14:51:14.868068 #1000] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2012-04-30T14:51:14.868068 #1000] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+D, [2012-04-30T14:53:19.255012 #3256] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-04-30T14:53:19.255012 #3256]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-04-30T14:53:19.255012 #3256] DEBUG -- :   [1m[35m (0.0ms)[0m  select sqlite_version(*)
+D, [2012-04-30T14:53:19.255012 #3256] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2012-04-30T14:53:19.255012 #3256] DEBUG -- :   [1m[35m (0.0ms)[0m  rollback transaction
+D, [2012-04-30T15:00:51.553740 #2604] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-04-30T15:00:51.569365 #2604] DEBUG -- :   [1m[35m (15.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2012-04-30T15:00:51.569365 #2604] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+D, [2012-04-30T15:00:51.600614 #2604] DEBUG -- :   [1m[35m (31.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+D, [2012-04-30T15:00:51.600614 #2604] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-04-30T15:00:51.600614 #2604]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-04-30T15:00:51.600614 #2604] DEBUG -- :   [1m[35m (0.0ms)[0m  begin transaction
+D, [2012-04-30T15:00:51.600614 #2604] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+D, [2012-04-30T15:03:28.126705 #2360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-04-30T15:03:28.126705 #2360]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-04-30T15:03:28.126705 #2360] DEBUG -- :   [1m[35m (0.0ms)[0m  select sqlite_version(*)
+D, [2012-04-30T15:03:28.126705 #2360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+D, [2012-04-30T15:03:28.173578 #2360] DEBUG -- :   [1m[35m (15.6ms)[0m  CREATE TABLE "rss_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "summary" varchar(255), "url" varchar(255), "published_at" varchar(255), "guid" varchar(255), "body" varchar(255)) 
+D, [2012-04-30T15:03:28.173578 #2360] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('1')[0m
+D, [2012-04-30T15:03:28.204828 #2360] DEBUG -- :   [1m[35m (31.2ms)[0m  commit transaction
+D, [2012-04-30T15:04:18.687802 #1936] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-04-30T15:04:18.687802 #1936]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-04-30T16:08:52.346736 #3532] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+D, [2012-04-30T16:08:52.346736 #3532] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+D, [2012-04-30T16:08:52.346736 #3532] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-04-30T16:08:52.346736 #3532]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-04-30T16:08:52.346736 #3532] DEBUG -- :   [1m[35m (0.0ms)[0m  select sqlite_version(*)
+D, [2012-04-30T16:08:52.362361 #3532] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mDROP TABLE "rss_entries"[0m
+D, [2012-04-30T16:08:52.362361 #3532] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '1'
+D, [2012-04-30T16:09:31.772224 #2344] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+D, [2012-04-30T16:09:31.772224 #2344] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations" 
+D, [2012-04-30T16:09:31.772224 #2344] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-04-30T16:09:31.772224 #2344]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-04-30T16:09:31.772224 #2344] DEBUG -- :   [1m[35m (0.0ms)[0m  select sqlite_version(*)
+D, [2012-04-30T16:09:31.787849 #2344] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mCREATE TABLE "rss_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "summary" varchar(255), "url" varchar(255), "published_at" varchar(255), "guid" varchar(255), "body" varchar(255)) [0m
+D, [2012-04-30T16:09:31.787849 #2344] DEBUG -- :   [1m[35m (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('1')
+D, [2012-05-01T15:15:22.994690 #1076] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+D, [2012-05-01T15:15:22.994690 #1076] DEBUG -- :   [1m[35m (0.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+D, [2012-05-01T15:15:22.994690 #1076] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+D, [2012-05-01T15:15:23.010315 #1076] DEBUG -- :   [1m[35m (15.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+D, [2012-05-01T15:15:23.010315 #1076] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+I, [2012-05-01T15:15:23.010315 #1076]  INFO -- : Migrating to CreateRssEntries (1)
+D, [2012-05-01T15:15:23.025941 #1076] DEBUG -- :   [1m[35m (0.0ms)[0m  CREATE TABLE "rss_entries" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255) NOT NULL, "summary" varchar(255), "url" varchar(255), "published_at" varchar(255), "guid" varchar(255), "source" varchar(255)) 
+D, [2012-05-01T15:15:23.025941 #1076] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('1')[0m
+D, [2012-05-29T23:18:28.339960 #2268] DEBUG -- :   [1m[36m (581.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+D, [2012-05-29T23:18:28.727789 #2268] DEBUG -- :   [1m[35m (330.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+D, [2012-05-29T23:41:06.580493 #3532] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-05-29T23:41:06.580493 #3532]  INFO -- : Migrating to CreateRssNews (1)
+D, [2012-05-29T23:42:45.574898 #2064] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-05-29T23:42:45.574898 #2064]  INFO -- : Migrating to CreateRssNews (1)
+D, [2012-05-29T23:42:45.654011 #2064] DEBUG -- :   [1m[35m (67.4ms)[0m  CREATE TABLE `rss_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `summary` varchar(255), `url` varchar(255), `published_at` varchar(255), `guid` varchar(255), `source` varchar(255)) ENGINE=InnoDB
+D, [2012-05-29T23:42:45.690149 #2064] DEBUG -- :   [1m[36m (32.2ms)[0m  [1mCREATE TABLE `rss_feeds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) NOT NULL, `link` varchar(255)) ENGINE=InnoDB[0m
+D, [2012-05-29T23:42:45.719450 #2064] DEBUG -- :   [1m[35m (26.4ms)[0m  CREATE TABLE `settings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `value` varchar(255)) ENGINE=InnoDB
+D, [2012-05-29T23:42:45.727264 #2064] DEBUG -- :   [1m[36m (2.9ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('1')[0m
+D, [2012-06-02T14:03:27.573335 #4584] DEBUG -- :   [1m[36m (3.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-06-02T14:03:27.573335 #4584]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-06-02T14:03:27.573335 #4584]  INFO -- : Migrating to ChangeSummaryToText (2)
+D, [2012-06-02T14:03:28.224660 #4584] DEBUG -- :   [1m[35m (595.7ms)[0m  ALTER TABLE `rss_entries` CHANGE `summary` `summary` text DEFAULT NULL
+D, [2012-06-02T14:03:28.238331 #4584] DEBUG -- :   [1m[36m (13.7ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('2')[0m
+D, [2012-06-08T14:04:07.485562 #4044] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-06-08T14:04:07.485562 #4044]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-06-08T14:04:07.485562 #4044]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-06-08T14:04:07.485562 #4044]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-06-08T14:05:03.862185 #3912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-06-08T14:05:03.862185 #3912]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-06-08T14:05:03.862185 #3912]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-06-08T14:05:03.862185 #3912]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-06-08T14:05:04.377810 #3912] DEBUG -- :   [1m[35m (375.0ms)[0m  ALTER TABLE `rss_entries` ADD `imported` int DEFAULT 0
+D, [2012-06-08T14:05:04.377810 #3912] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('3')[0m
+D, [2012-09-23T02:58:11.281032 #348] DEBUG -- :   [1m[36m (937.5ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+D, [2012-09-23T02:58:11.656032 #348] DEBUG -- :   [1m[35m (359.4ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+D, [2012-09-23T02:58:11.718532 #348] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T02:58:11.718532 #348]  INFO -- : Migrating to CreateRssNews (1)
+D, [2012-09-23T02:58:11.765407 #348] DEBUG -- :   [1m[35m (31.2ms)[0m  CREATE TABLE `rss_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `summary` varchar(255), `url` varchar(255), `published_at` varchar(255), `guid` varchar(255), `source` varchar(255)) ENGINE=InnoDB
+D, [2012-09-23T02:58:11.859157 #348] DEBUG -- :   [1m[36m (93.8ms)[0m  [1mCREATE TABLE `rss_feeds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) NOT NULL, `link` varchar(255)) ENGINE=InnoDB[0m
+D, [2012-09-23T02:58:11.890407 #348] DEBUG -- :   [1m[35m (31.2ms)[0m  CREATE TABLE `settings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `value` varchar(255)) ENGINE=InnoDB
+D, [2012-09-23T02:58:11.906032 #348] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('1')[0m
+I, [2012-09-23T02:58:11.906032 #348]  INFO -- : Migrating to ChangeSummaryToText (2)
+D, [2012-09-23T02:58:12.093532 #348] DEBUG -- :   [1m[35m (78.1ms)[0m  ALTER TABLE `rss_entries` CHANGE `summary` `summary` text DEFAULT NULL
+D, [2012-09-23T02:58:12.109157 #348] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('2')[0m
+I, [2012-09-23T02:58:12.109157 #348]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-09-23T02:58:12.140407 #348] DEBUG -- :   [1m[35m (31.2ms)[0m  ALTER TABLE `rss_entries` ADD `imported` int DEFAULT 0
+D, [2012-09-23T02:58:12.140407 #348] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('3')[0m
+D, [2012-09-23T03:01:23.754665 #976] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T03:01:23.754665 #976]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T03:01:23.754665 #976]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T03:01:23.754665 #976]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-09-23T03:05:57.647187 #2828] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T03:05:57.647187 #2828]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T03:05:57.647187 #2828]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T03:05:57.647187 #2828]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-09-23T03:05:57.647187 #2828]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-09-23T03:05:57.834687 #2828] DEBUG -- :   [1m[35m (140.6ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` varchar(255) NOT NULL, `html` varchar(255), `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-09-23T03:05:57.834687 #2828] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('4')[0m
+D, [2012-09-23T08:13:44.293991 #5024] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-09-23T08:13:44.296921 #5024] DEBUG -- :   [1m[35m (1.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-09-23T08:13:44.298874 #5024] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T08:13:44.298874 #5024]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-09-23T08:13:44.428757 #5024] DEBUG -- :   [1m[35m (124.0ms)[0m  DROP TABLE `video_entries`
+D, [2012-09-23T08:13:44.460983 #5024] DEBUG -- :   [1m[36m (27.3ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '4'[0m
+D, [2012-09-23T08:55:15.601519 #4756] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T08:55:15.601519 #4756]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T08:55:15.601519 #4756]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T08:55:15.601519 #4756]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-09-23T08:55:15.601519 #4756]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-09-23T08:55:15.820269 #4756] DEBUG -- :   [1m[35m (109.4ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` varchar(255) NOT NULL, `html` varchar(255), `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-09-23T08:55:15.929644 #4756] DEBUG -- :   [1m[36m (109.4ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-09-23T08:55:15.960894 #4756] DEBUG -- :   [1m[35m (31.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+D, [2012-09-23T10:22:42.187995 #1844] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-09-23T10:22:42.203620 #1844] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-09-23T10:22:42.203620 #1844] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T10:22:42.203620 #1844]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-09-23T10:22:42.266120 #1844] DEBUG -- :   [1m[35m (62.5ms)[0m  DROP TABLE `video_entries`
+D, [2012-09-23T10:22:42.266120 #1844] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '4'[0m
+D, [2012-09-23T10:24:26.314949 #848] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T10:24:26.314949 #848]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T10:24:26.314949 #848]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T10:24:26.314949 #848]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-09-23T10:24:26.314949 #848]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-09-23T10:24:26.471199 #848] DEBUG -- :   [1m[35m (93.8ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-09-23T10:24:26.486824 #848] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-09-23T10:24:26.486824 #848] DEBUG -- : Mysql2::Error: Table 'search_keywords' already exists: CREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB
+D, [2012-09-23T10:25:10.598152 #4456] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-09-23T10:25:10.598152 #4456] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-09-23T10:25:10.598152 #4456] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T10:25:10.598152 #4456]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T10:25:10.598152 #4456]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T10:25:10.598152 #4456]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-09-23T10:25:20.572761 #4420] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T10:25:20.572761 #4420]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T10:25:20.572761 #4420]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T10:25:20.572761 #4420]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-09-23T10:25:20.572761 #4420]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-09-23T10:25:20.635261 #4420] DEBUG -- :   [1m[35m (0.0ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-09-23T10:25:20.635261 #4420] DEBUG -- : Mysql2::Error: Table 'video_entries' already exists: CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-09-23T10:25:45.682136 #3856] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-09-23T10:25:45.682136 #3856] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-09-23T10:25:45.682136 #3856] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T10:25:45.682136 #3856]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T10:25:45.682136 #3856]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T10:25:45.682136 #3856]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-09-23T10:25:55.479011 #1004] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-09-23T10:25:55.479011 #1004] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-09-23T10:25:55.479011 #1004] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T10:25:55.479011 #1004]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-09-23T10:25:56.229988 #1004] DEBUG -- :   [1m[35m (735.4ms)[0m  ALTER TABLE `rss_entries` DROP `imported`
+D, [2012-09-23T10:25:56.245613 #1004] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '3'[0m
+D, [2012-09-23T10:26:52.704597 #2424] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-09-23T10:26:52.704597 #2424]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-09-23T10:26:52.704597 #2424]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-09-23T10:26:52.704597 #2424]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-09-23T10:26:52.892097 #2424] DEBUG -- :   [1m[35m (125.0ms)[0m  ALTER TABLE `rss_entries` ADD `imported` int DEFAULT 0
+D, [2012-09-23T10:26:52.907722 #2424] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('3')[0m
+I, [2012-09-23T10:26:52.907722 #2424]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-09-23T10:26:52.938972 #2424] DEBUG -- :   [1m[35m (31.2ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-09-23T10:26:52.970222 #2424] DEBUG -- :   [1m[36m (31.2ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-09-23T10:26:52.985847 #2424] DEBUG -- :   [1m[35m (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+D, [2012-11-07T11:53:24.742462 #5584] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T11:53:24.742462 #5584]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T11:53:24.742462 #5584]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T11:53:24.742462 #5584]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-07T11:53:24.742462 #5584]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T11:53:24.934696 #5584] DEBUG -- :   [1m[35m (128.2ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T11:53:24.934696 #5584] DEBUG -- : Mysql2::Error: Table 'video_entries' already exists: CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T11:55:44.172653 #3516] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T11:55:44.172653 #3516]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T11:55:44.172653 #3516]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T11:55:44.172653 #3516]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-07T11:55:44.172653 #3516]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T11:55:44.219528 #3516] DEBUG -- :   [1m[35m (0.0ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T11:55:44.219528 #3516] DEBUG -- : Mysql2::Error: Table 'video_entries' already exists: CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T11:56:55.402145 #5020] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T11:56:55.402145 #5020]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T11:56:55.402145 #5020]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T11:56:55.402145 #5020]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-07T11:56:55.402145 #5020]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T11:56:55.464645 #5020] DEBUG -- :   [1m[35m (0.0ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T11:56:55.464645 #5020] DEBUG -- : Mysql2::Error: Table 'video_entries' already exists: CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T11:57:25.905075 #6068] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-11-07T11:57:25.905075 #6068] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-11-07T11:57:25.905075 #6068] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T11:57:25.905075 #6068]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T11:57:25.905075 #6068]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T11:57:25.905075 #6068]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-11-07T11:57:33.624801 #5188] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T11:57:33.624801 #5188]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T11:57:33.624801 #5188]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T11:57:33.624801 #5188]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-07T11:57:33.624801 #5188]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T11:57:33.671676 #5188] DEBUG -- :   [1m[35m (0.0ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T11:57:33.671676 #5188] DEBUG -- : Mysql2::Error: Table 'video_entries' already exists: CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T12:01:40.785595 #4416] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-11-07T12:01:40.785595 #4416] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-11-07T12:01:40.785595 #4416] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T12:01:40.785595 #4416]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T12:01:40.785595 #4416]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T12:01:40.785595 #4416]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2012-11-07T12:05:28.779243 #5900] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-11-07T12:05:28.779243 #5900] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-11-07T12:05:28.779243 #5900] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T12:05:28.779243 #5900]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T12:05:29.201118 #5900] DEBUG -- :   [1m[35m (421.9ms)[0m  DROP TABLE `video_entries`
+D, [2012-11-07T12:05:29.216743 #5900] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mDROP TABLE `search_keywords`[0m
+D, [2012-11-07T12:05:29.216743 #5900] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '4'
+D, [2012-11-07T12:05:45.173774 #3884] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T12:05:45.173774 #3884]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T12:05:45.173774 #3884]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T12:05:45.173774 #3884]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-07T12:05:45.173774 #3884]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T12:05:45.486274 #3884] DEBUG -- :   [1m[35m (234.4ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T12:05:45.626899 #3884] DEBUG -- :   [1m[36m (125.0ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-11-07T12:05:45.658149 #3884] DEBUG -- :   [1m[35m (31.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+I, [2012-11-07T12:05:45.658149 #3884]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-07T12:05:45.736274 #3884] DEBUG -- :   [1m[36m (78.1ms)[0m  [1mCREATE TABLE `image_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB[0m
+D, [2012-11-07T12:05:45.814399 #3884] DEBUG -- :   [1m[35m (78.1ms)[0m  CREATE TABLE `audio_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T12:05:45.830024 #3884] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('5')[0m
+D, [2012-11-07T21:09:21.831789 #5436] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-11-07T21:09:21.831789 #5436] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-11-07T21:09:21.831789 #5436] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T21:09:21.831789 #5436]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-07T21:09:21.909914 #5436] DEBUG -- :   [1m[35m (78.1ms)[0m  DROP TABLE `image_entries`
+D, [2012-11-07T21:09:21.941164 #5436] DEBUG -- :   [1m[36m (31.2ms)[0m  [1mDROP TABLE `audio_entries`[0m
+D, [2012-11-07T21:09:21.941164 #5436] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '5'
+I, [2012-11-07T21:09:21.941164 #5436]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T21:09:21.956789 #5436] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDROP TABLE `video_entries`[0m
+D, [2012-11-07T21:09:21.956789 #5436] DEBUG -- :   [1m[35m (0.0ms)[0m  DROP TABLE `search_keywords`
+D, [2012-11-07T21:09:21.972414 #5436] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '4'[0m
+D, [2012-11-07T21:09:29.737355 #2156] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-07T21:09:29.737355 #2156]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-07T21:09:29.737355 #2156]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-07T21:09:29.737355 #2156]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-07T21:09:29.737355 #2156]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-07T21:09:30.005422 #2156] DEBUG -- :   [1m[35m (211.8ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T21:09:30.047609 #2156] DEBUG -- :   [1m[36m (28.1ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-11-07T21:09:30.047609 #2156] DEBUG -- :   [1m[35m (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+I, [2012-11-07T21:09:30.047609 #2156]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-07T21:09:30.075734 #2156] DEBUG -- :   [1m[36m (28.1ms)[0m  [1mCREATE TABLE `image_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB[0m
+D, [2012-11-07T21:09:30.160109 #2156] DEBUG -- :   [1m[35m (70.3ms)[0m  CREATE TABLE `audio_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-07T21:09:30.300734 #2156] DEBUG -- :   [1m[36m (140.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('5')[0m
+D, [2012-11-08T19:05:59.493290 #3704] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-11-08T19:05:59.493290 #3704] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-11-08T19:05:59.493290 #3704] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-08T19:05:59.493290 #3704]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-08T19:05:59.665165 #3704] DEBUG -- :   [1m[35m (156.2ms)[0m  DROP TABLE `image_entries`
+D, [2012-11-08T19:05:59.680790 #3704] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mDROP TABLE `audio_entries`[0m
+D, [2012-11-08T19:05:59.696415 #3704] DEBUG -- :   [1m[35m (15.6ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '5'
+I, [2012-11-08T19:05:59.696415 #3704]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-08T19:05:59.774540 #3704] DEBUG -- :   [1m[36m (62.5ms)[0m  [1mDROP TABLE `video_entries`[0m
+D, [2012-11-08T19:05:59.837040 #3704] DEBUG -- :   [1m[35m (62.5ms)[0m  DROP TABLE `search_keywords`
+D, [2012-11-08T19:05:59.837040 #3704] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '4'[0m
+D, [2012-11-08T19:07:06.645351 #3780] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-08T19:07:06.645351 #3780]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-08T19:07:06.645351 #3780]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-08T19:07:06.645351 #3780]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-08T19:07:06.645351 #3780]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-08T19:07:06.985662 #3780] DEBUG -- :   [1m[35m (278.4ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-08T19:07:07.016599 #3780] DEBUG -- :   [1m[36m (30.9ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-11-08T19:07:07.032068 #3780] DEBUG -- :   [1m[35m (15.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+I, [2012-11-08T19:07:07.032068 #3780]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-08T19:07:07.078474 #3780] DEBUG -- :   [1m[36m (46.4ms)[0m  [1mCREATE TABLE `image_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB[0m
+D, [2012-11-08T19:07:07.155818 #3780] DEBUG -- :   [1m[35m (77.3ms)[0m  CREATE TABLE `audio_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-08T19:07:07.171286 #3780] DEBUG -- :   [1m[36m (15.5ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('5')[0m
+D, [2012-11-08T19:27:24.786040 #3880] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-11-08T19:27:24.786040 #3880] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-11-08T19:27:24.786040 #3880] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-08T19:27:24.786040 #3880]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-08T19:27:24.987133 #3880] DEBUG -- :   [1m[35m (170.2ms)[0m  DROP TABLE `image_entries`
+D, [2012-11-08T19:27:24.987133 #3880] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDROP TABLE `audio_entries`[0m
+D, [2012-11-08T19:27:25.002601 #3880] DEBUG -- :   [1m[35m (15.5ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '5'
+I, [2012-11-08T19:27:25.002601 #3880]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-08T19:27:25.002601 #3880] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDROP TABLE `video_entries`[0m
+D, [2012-11-08T19:27:25.018070 #3880] DEBUG -- :   [1m[35m (15.5ms)[0m  DROP TABLE `search_keywords`
+D, [2012-11-08T19:27:25.033539 #3880] DEBUG -- :   [1m[36m (15.5ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '4'[0m
+D, [2012-11-08T19:29:48.989749 #972] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-08T19:29:48.989749 #972]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-08T19:29:48.989749 #972]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-08T19:29:48.989749 #972]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-08T19:29:48.989749 #972]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-08T19:29:49.224124 #972] DEBUG -- :   [1m[35m (187.5ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-08T19:29:49.255374 #972] DEBUG -- :   [1m[36m (31.2ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-11-08T19:29:49.255374 #972] DEBUG -- :   [1m[35m (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+I, [2012-11-08T19:29:49.255374 #972]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-08T19:29:49.302249 #972] DEBUG -- :   [1m[36m (31.2ms)[0m  [1mCREATE TABLE `image_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB[0m
+D, [2012-11-08T19:29:49.333499 #972] DEBUG -- :   [1m[35m (31.2ms)[0m  CREATE TABLE `audio_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-08T19:29:49.349124 #972] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('5')[0m
+D, [2012-11-08T22:53:51.377699 #4348] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+D, [2012-11-08T22:53:51.377699 #4348] DEBUG -- :   [1m[35m (0.0ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations` 
+D, [2012-11-08T22:53:51.377699 #4348] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-08T22:53:51.377699 #4348]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-08T22:53:51.393324 #4348] DEBUG -- :   [1m[35m (0.0ms)[0m  DROP TABLE `image_entries`
+D, [2012-11-08T22:53:51.424574 #4348] DEBUG -- :   [1m[36m (31.2ms)[0m  [1mDROP TABLE `audio_entries`[0m
+D, [2012-11-08T22:53:51.424574 #4348] DEBUG -- :   [1m[35m (0.0ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '5'
+I, [2012-11-08T22:53:51.424574 #4348]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-08T22:53:51.440199 #4348] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDROP TABLE `video_entries`[0m
+D, [2012-11-08T22:53:51.455824 #4348] DEBUG -- :   [1m[35m (15.6ms)[0m  DROP TABLE `search_keywords`
+D, [2012-11-08T22:53:51.455824 #4348] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '4'[0m
+D, [2012-11-08T22:53:58.862074 #4588] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-11-08T22:53:58.862074 #4588]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-11-08T22:53:58.862074 #4588]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-11-08T22:53:58.862074 #4588]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-11-08T22:53:58.862074 #4588]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2012-11-08T22:53:59.158949 #4588] DEBUG -- :   [1m[35m (250.0ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-08T22:53:59.190199 #4588] DEBUG -- :   [1m[36m (31.2ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2012-11-08T22:53:59.205824 #4588] DEBUG -- :   [1m[35m (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+I, [2012-11-08T22:53:59.205824 #4588]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2012-11-08T22:53:59.252699 #4588] DEBUG -- :   [1m[36m (46.9ms)[0m  [1mCREATE TABLE `image_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `img` varchar(255), `title` varchar(255), `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB[0m
+D, [2012-11-08T22:53:59.330824 #4588] DEBUG -- :   [1m[35m (78.1ms)[0m  CREATE TABLE `audio_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2012-11-08T22:53:59.330824 #4588] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('5')[0m
+D, [2012-12-02T11:48:29.640934 #1288] DEBUG -- :   [1m[36m (61.9ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-12-02T11:48:29.640934 #1288]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-12-02T11:48:29.640934 #1288]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-12-02T11:48:29.640934 #1288]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-12-02T11:48:29.640934 #1288]  INFO -- : Migrating to CreateVideoNews (4)
+I, [2012-12-02T11:48:29.640934 #1288]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+I, [2012-12-02T11:48:29.640934 #1288]  INFO -- : Migrating to AddRssPodcasts (6)
+D, [2012-12-02T11:49:28.865090 #340] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-12-02T11:49:28.865090 #340]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-12-02T11:49:28.865090 #340]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-12-02T11:49:28.865090 #340]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-12-02T11:49:28.865090 #340]  INFO -- : Migrating to CreateVideoNews (4)
+I, [2012-12-02T11:49:28.865090 #340]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+I, [2012-12-02T11:49:28.865090 #340]  INFO -- : Migrating to AddRssPodcasts (6)
+D, [2012-12-02T11:49:29.396340 #340] DEBUG -- :   [1m[35m (531.2ms)[0m  CREATE TABLE `podcast_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `summary` varchar(255), `url` varchar(255), `published_at` varchar(255), `guid` varchar(255), `source` varchar(255)) ENGINE=InnoDB
+D, [2012-12-02T11:49:29.443215 #340] DEBUG -- :   [1m[36m (46.9ms)[0m  [1mCREATE TABLE `podcast_feeds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) NOT NULL, `link` varchar(255)) ENGINE=InnoDB[0m
+D, [2012-12-02T11:49:29.474465 #340] DEBUG -- :   [1m[35m (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('6')
+D, [2012-12-03T18:44:37.448360 #3608] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2012-12-03T18:44:37.448360 #3608]  INFO -- : Migrating to CreateRssNews (1)
+I, [2012-12-03T18:44:37.448360 #3608]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2012-12-03T18:44:37.448360 #3608]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2012-12-03T18:44:37.448360 #3608]  INFO -- : Migrating to CreateVideoNews (4)
+I, [2012-12-03T18:44:37.448360 #3608]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+I, [2012-12-03T18:44:37.448360 #3608]  INFO -- : Migrating to AddRssPodcasts (6)
+D, [2013-02-11T12:19:14.409179 #2356] DEBUG -- :   [1m[36m (684.6ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+D, [2013-02-11T12:19:14.629882 #2356] DEBUG -- :   [1m[35m (172.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+D, [2013-02-11T12:19:14.682617 #2356] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2013-02-11T12:19:14.682617 #2356]  INFO -- : Migrating to CreateRssNews (1)
+D, [2013-02-11T12:19:14.761718 #2356] DEBUG -- :   [1m[35m (16.6ms)[0m  CREATE TABLE `rss_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `summary` varchar(255), `url` varchar(255), `published_at` varchar(255), `guid` varchar(255), `source` varchar(255)) ENGINE=InnoDB
+D, [2013-02-11T12:19:14.802734 #2356] DEBUG -- :   [1m[36m (37.1ms)[0m  [1mCREATE TABLE `rss_feeds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) NOT NULL, `link` varchar(255)) ENGINE=InnoDB[0m
+D, [2013-02-11T12:19:14.882812 #2356] DEBUG -- :   [1m[35m (78.1ms)[0m  CREATE TABLE `settings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `value` varchar(255)) ENGINE=InnoDB
+D, [2013-02-11T12:19:14.946289 #2356] DEBUG -- :   [1m[36m (33.2ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('1')[0m
+I, [2013-02-11T12:19:14.946289 #2356]  INFO -- : Migrating to ChangeSummaryToText (2)
+D, [2013-02-11T12:19:15.271484 #2356] DEBUG -- :   [1m[35m (67.4ms)[0m  ALTER TABLE `rss_entries` CHANGE `summary` `summary` text DEFAULT NULL
+D, [2013-02-11T12:19:15.278320 #2356] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('2')[0m
+I, [2013-02-11T12:19:15.278320 #2356]  INFO -- : Migrating to AddImportedColumn (3)
+D, [2013-02-11T12:19:15.401367 #2356] DEBUG -- :   [1m[35m (37.1ms)[0m  ALTER TABLE `rss_entries` ADD `imported` int DEFAULT 0
+D, [2013-02-11T12:19:15.406250 #2356] DEBUG -- :   [1m[36m (2.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('3')[0m
+I, [2013-02-11T12:19:15.406250 #2356]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2013-02-11T12:19:15.507812 #2356] DEBUG -- :   [1m[35m (13.7ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-02-11T12:19:15.542968 #2356] DEBUG -- :   [1m[36m (31.2ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2013-02-11T12:19:15.547851 #2356] DEBUG -- :   [1m[35m (2.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+I, [2013-02-11T12:19:15.548828 #2356]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2013-02-11T12:19:15.656250 #2356] DEBUG -- :   [1m[36m (19.5ms)[0m  [1mCREATE TABLE `image_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `img` varchar(255), `title` varchar(255), `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB[0m
+D, [2013-02-11T12:19:15.702148 #2356] DEBUG -- :   [1m[35m (43.0ms)[0m  CREATE TABLE `audio_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-02-11T12:19:15.721679 #2356] DEBUG -- :   [1m[36m (15.6ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('5')[0m
+I, [2013-02-11T12:19:15.721679 #2356]  INFO -- : Migrating to AddRssPodcasts (6)
+D, [2013-02-11T12:21:55.775390 #3480] DEBUG -- :   [1m[36m (1.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2013-02-11T12:21:55.775390 #3480]  INFO -- : Migrating to CreateRssNews (1)
+I, [2013-02-11T12:21:55.775390 #3480]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2013-02-11T12:21:55.775390 #3480]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2013-02-11T12:21:55.775390 #3480]  INFO -- : Migrating to CreateVideoNews (4)
+I, [2013-02-11T12:21:55.775390 #3480]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+I, [2013-02-11T12:21:55.775390 #3480]  INFO -- : Migrating to AddRssPodcasts (6)
+D, [2013-02-11T12:21:56.772461 #3480] DEBUG -- :   [1m[35m (792.0ms)[0m  CREATE TABLE `podcast_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `summary` text, `url` varchar(255), `published_at` varchar(255), `guid` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-02-11T12:21:56.843750 #3480] DEBUG -- :   [1m[36m (69.3ms)[0m  [1mCREATE TABLE `podcast_feeds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) NOT NULL, `link` varchar(255)) ENGINE=InnoDB[0m
+D, [2013-02-11T12:21:56.877929 #3480] DEBUG -- :   [1m[35m (30.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('6')
+D, [2013-03-23T10:17:00.034190 #4828] DEBUG -- :   [1m[36m (62.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2013-03-23T10:17:00.034190 #4828]  INFO -- : Migrating to CreateRssNews (1)
+I, [2013-03-23T10:17:00.034190 #4828]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2013-03-23T10:17:00.034190 #4828]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2013-03-23T10:17:00.034190 #4828]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2013-03-23T10:17:00.237315 #4828] DEBUG -- :   [1m[35m (130.9ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:17:00.237315 #4828] DEBUG -- : Mysql2::Error: Table 'video_entries' already exists: CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:21:32.102549 #2960] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2013-03-23T10:21:32.102549 #2960]  INFO -- : Migrating to CreateRssNews (1)
+I, [2013-03-23T10:21:32.102549 #2960]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2013-03-23T10:21:32.102549 #2960]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2013-03-23T10:21:32.102549 #2960]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2013-03-23T10:21:32.631846 #2960] DEBUG -- :   [1m[35m (474.6ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:21:32.686534 #2960] DEBUG -- :   [1m[36m (51.8ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2013-03-23T10:21:32.686534 #2960] DEBUG -- : Mysql2::Error: Table 'search_keywords' already exists: CREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB
+D, [2013-03-23T10:18:46.828104 #2840] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2013-03-23T10:18:46.828104 #2840]  INFO -- : Migrating to CreateRssNews (1)
+I, [2013-03-23T10:18:46.828104 #2840]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2013-03-23T10:18:46.828104 #2840]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2013-03-23T10:18:46.828104 #2840]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2013-03-23T10:18:46.898416 #2840] DEBUG -- :   [1m[35m (0.0ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:18:46.898416 #2840] DEBUG -- : Mysql2::Error: Table 'video_entries' already exists: CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:19:58.608324 #7628] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations` [0m
+I, [2013-03-23T10:19:58.608324 #7628]  INFO -- : Migrating to CreateRssNews (1)
+I, [2013-03-23T10:19:58.608324 #7628]  INFO -- : Migrating to ChangeSummaryToText (2)
+I, [2013-03-23T10:19:58.608324 #7628]  INFO -- : Migrating to AddImportedColumn (3)
+I, [2013-03-23T10:19:58.608324 #7628]  INFO -- : Migrating to CreateVideoNews (4)
+D, [2013-03-23T10:19:59.037523 #7628] DEBUG -- :   [1m[35m (358.9ms)[0m  CREATE TABLE `video_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `title` varchar(255), `description` text, `img` varchar(255), `when` varchar(255), `duration` varchar(255), `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:19:59.229417 #7628] DEBUG -- :   [1m[36m (191.9ms)[0m  [1mCREATE TABLE `search_keywords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `keywords` varchar(255) NOT NULL, `source` varchar(255), `imported` int DEFAULT 0, `last_updated` datetime) ENGINE=InnoDB[0m
+D, [2013-03-23T10:19:59.301194 #7628] DEBUG -- :   [1m[35m (23.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('4')
+I, [2013-03-23T10:19:59.301194 #7628]  INFO -- : Migrating to CreateImageAndAudioNews (5)
+D, [2013-03-23T10:19:59.494554 #7628] DEBUG -- :   [1m[36m (193.4ms)[0m  [1mCREATE TABLE `image_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `img` varchar(255), `title` varchar(255), `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB[0m
+D, [2013-03-23T10:19:59.661546 #7628] DEBUG -- :   [1m[35m (167.0ms)[0m  CREATE TABLE `audio_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `url` text NOT NULL, `html` text, `keywords` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:19:59.661546 #7628] DEBUG -- :   [1m[36m (0.0ms)[0m  [1mINSERT INTO `schema_migrations` (`version`) VALUES ('5')[0m
+I, [2013-03-23T10:19:59.661546 #7628]  INFO -- : Migrating to AddRssPodcasts (6)
+D, [2013-03-23T10:19:59.781663 #7628] DEBUG -- :   [1m[35m (120.1ms)[0m  CREATE TABLE `podcast_entries` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) NOT NULL, `summary` text, `url` varchar(255), `published_at` varchar(255), `guid` varchar(255), `source` varchar(255), `imported` int DEFAULT 0) ENGINE=InnoDB
+D, [2013-03-23T10:19:59.876878 #7628] DEBUG -- :   [1m[36m (95.2ms)[0m  [1mCREATE TABLE `podcast_feeds` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) NOT NULL, `link` varchar(255)) ENGINE=InnoDB[0m
+D, [2013-03-23T10:19:59.876878 #7628] DEBUG -- :   [1m[35m (0.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('6')

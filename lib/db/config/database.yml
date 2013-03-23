@@ -1,0 +1,6 @@
+## YAML Template.
+adapter: mysql2
+database: rss_news
+username: root
+password: root
+host: localhost

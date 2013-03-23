@@ -1,0 +1,80 @@
+http://news.yahoo.com/rss/science Yahoo: Science
+http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=tc&output=rss Google: Technology
+http://news.google.com/news?pz=1&cf=all&ned=us&hl=en&topic=snc&output=rss Google: Science
+http://rss.msnbc.msn.com/id/46417424/device/rss/rss.xml MSNBC: Science
+http://rss.msnbc.msn.com/id/3033117/device/rss/rss.xml MSNBC: Tech&Gadgets
+http://rss.msnbc.msn.com/id/46824989/device/rss/rss.xml MSNBC: Digital Life
+http://rss.msnbc.msn.com/id/9548203/device/rss/rss.xml MSNBC: Future of Tech
+http://rss.msnbc.msn.com/id/46824987/device/rss/rss.xml MSNBC: Technology
+http://rss.msnbc.msn.com/id/3033062/device/rss/rss.xml MSNBC: Space
+http://rss.msnbc.msn.com/id/3033076/device/rss/rss.xml MSNBC: Security
+http://rss.sciam.com/ScientificAmerican-News Scientific American
+http://rss.sciam.com/sciam/basic-science Scientific American: Basic Science
+http://rss.sciam.com/sciam/biology Scientific American: Biology
+http://rss.sciam.com/sciam/chemistry Scientific American: Chemistry
+http://rss.sciam.com/sciam/history-of-science Scientific American: History of Science
+http://rss.sciam.com/sciam/math Scientific American: Math
+http://rss.sciam.com/sciam/physics Scientific American: Physics
+http://rss.sciam.com/sciam/society-and-policy Scientific American: Society and Policy
+http://rss.sciam.com/sciam/everyday-science Scientific American: Everyday Science
+http://rss.sciam.com/sciam/science-education Scientific American: Science Education
+http://rss.sciam.com/sciam/topic/aging-and-the-elderly Scientific American: Aging and the Elderly
+http://rss.sciam.com/sciam/topic/animals Scientific American: Animals
+http://rss.sciam.com/sciam/topic/atmospheric-sciences Scientific American: Atmospheric Sciences
+http://rss.sciam.com/sciam/topic/bacteria-and-viruses Scientific American: Bacteria and Viruses
+http://rss.sciam.com/sciam/topic/biodiversity Scientific American: Biodiversity
+http://rss.sciam.com/sciam/topic/cloning Scientific American: Cloning
+http://rss.sciam.com/sciam/topic/earth-science Scientific American: Earth Science
+http://rss.sciam.com/sciam/topic/fractals Scientific American: Fractals
+http://rss.sciam.com/sciam/topic/genetic-engineering Scientific American: Genetic Engineering
+http://rss.sciam.com/sciam/topic/genetics Scientific American: Genetics
+http://rss.sciam.com/sciam/topic/how-things-work Scientific American: How Things Work
+http://rss.sciam.com/sciam/topic/large-hadron-collider Scientific American: Large Hadron Collider
+http://rss.sciam.com/sciam/topic/microbiology Scientific American: Microbiology
+http://rss.sciam.com/sciam/topic/natural-disasters Scientific American: Natural Disasters
+http://rss.sciam.com/sciam/topic/oceanography Scientific American: Oceanography
+http://rss.sciam.com/sciam/topic/optical-physics Scientific American: Optical Physics
+http://rss.sciam.com/sciam/topic/plants Scientific American: Plants 
+http://rss.sciam.com/sciam/topic/quantum-computing Scientific American: Quantum Computing 
+http://rss.sciam.com/sciam/topic/science-ethics Scientific American: Science Ethics 
+http://rss.sciam.com/sciam/topic/weather Scientific American: Weather
+http://www.sciencenews.org/view/feed/name/all.rss Science News
+http://www.sciencedaily.com/newsfeed.xml Science Daily
+http://www.eurekalert.org/rss.xml Eureka Alert
+http://www.sciencenewsdaily.org Science News Daily
+http://news.sciencemag.org/rss/current.xml Science Magazine
+http://sciencecareers.sciencemag.org/layout/set/rss/career_development/issue/current Science Magazine: Science Careers
+http://www.aaas.org/news/rss/AAAS.xml AAAS.org
+http://feeds.newscientist.com/science-news New Scientist
+http://feeds.latimes.com/latimes/news/science LA Times
+http://feeds.nytimes.com/nyt/rss/Science NY Times
+http://www.usa.gov/Topics/Reference_Shelf/Libraries/RSS_Library/Science.shtml USA.gov Science and Technology
+http://www.labspaces.net/labspaces.xml?news=All Lab Spaces
+http://feeds.feedburner.com/nationalacademies/na National Academies
+http://www.iom.edu/Global/RSS.aspx National Academies Institute of Medicine
+http://dels.nas.edu/rss National Academies Division of Earth and Life Sciences
+http://www.nap.edu/rss/new.xml  National Academies Press
+http://newsrss.bbc.co.uk/rss/newsonline_uk_edition/sci/tech/rss.xml BBC Science & Environment
+http://www.npr.org/rss/rss.php?id=1007 NPR: Science
+http://feeds.feedburner.com/NewsFromTheScientist The Scientist
+http://hosted2.ap.org/atom/APDEFAULT/495d344a0d10421e9baa8ee77029cfbd AP Technology
+http://hosted2.ap.org/atom/APDEFAULT/b2f0ca3a594644ee9e50a8ec4ce2d6de AP Science
+http://www.pbs.org/wgbh/nova/sciencenow/rss/nsn.xml NOVA ScienceNOW
+http://feeds.reuters.com/reuters/scienceNews Reuters: Science
+http://www.popularmechanics.com/rss/ Popular Mechanics
+http://science.slashdot.org/ science.slashdot.org
+http://rss.sciam.com/sciam/technology Scientific American: Technology
+http://rss.sciam.com/ScientificAmerican-Global Scientific American
+http://rss.cnn.com/rss/cnn_tech.rss CNN: Technology
+http://www.nanowerk.com%2Fnwfeedres.xml&t1= NanoWerk NanoTechnology
+http://feeds.reuters.com/reuters/technologyNews Reuters: Technology
+http://feeds.technologyreview.com/technology_review_top_stories Technology Review
+http://www.npr.org/rss/rss.php?id=1019 NPR: Technology
+http://feeds.nature.com/news/rss/news_s16 Nature News: Technology
+http://feeds.wired.com/wired/index Wired
+http://feeds.nytimes.com/nyt/rss/Technology NY Times: Technology
+http://feeds.latimes.com/latimes/technology LA Times: Technology
+http://feeds.newscientist.com/tech New Scientist: Technology
+http://rss.sciam.com/sciam/mind-and-brain American Scientist: Mind and Brain
+http://feeds.nature.com/news/rss/news_s2 Nature News: Brain and Behavior
+http://feeds.plos.org/plosone/Neuroscience PLoS NeuroScience Research

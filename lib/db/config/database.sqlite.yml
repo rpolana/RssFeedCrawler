@@ -1,0 +1,6 @@
+## YAML Template.
+adapter: sqlite3
+database: db/testdb
+username: root
+password: root
+host: localhost

@@ -1,0 +1,9 @@
+== RssFeedCrawler
+
+Mar2013:
+After getting code: 
+1. Create rss_news database in local mysql db server
+2. Run "ruby InitializeRssFeeds.rb" to add the initial rss feeds to the rss_feeds table in rss_news database
+3. Start Stemlete site and under Administration go to Settings page under Rss News plugin menu: Click on "Export settings to rss_news" button.  This will add all stem areas as search keywords in search_keyswords table in rss_news database and also set the other settings on that page in the settings table.
+4. Now run "ruby UpdateMedia.rb": It should show all news feeds being crawled followed by image and video searches for the stem area keywords
+

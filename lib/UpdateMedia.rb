@@ -1,17 +1,25 @@
+require 'rubygems'
 require 'active_record'
 #require 'database_configuration'
 require 'timeout'
 require 'nokogiri'
 require 'open-uri'
-
+require 'uri'
+require 'uuidtools'
 
 MEDIA_UPDATE_PERIOD_IN_HOURS = 24
 SEARCH_TIMEOUT_IN_SECONDS = 600
+URL_OPEN_HEADERS_HASH = {"User-Agent" => "Ruby/#{RUBY_VERSION}"}
+
 
 class Setting < ActiveRecord::Base
   @@CheckSettingsPeriodInSeconds = 5 
   @@MediaUpdatePeriodInHours = MEDIA_UPDATE_PERIOD_IN_HOURS
   @@RefreshNow = 0
+  @@VideoNewsUrlBase = "rss_news/video_news"
+  @@VideoNewsDirBase = "./rss_news/video_news"
+  @@ImageNewsUrlBase = "rss_news/image_news"
+  @@ImageNewsDirBase = "./rss_news/image_news"
   def self.update_settings()
     settings = self.find(:all)
     #puts "Updating settings from db: #{settings.size} settings (not all printed below)" 
@@ -30,6 +38,30 @@ class Setting < ActiveRecord::Base
       if setting.name == "ExitNow"
         @@ExitNow = setting.value.to_i
       end
+      if setting.name == "VideoNewsUrlBase"
+        @@VideoNewsUrlBase = setting.value
+        #puts "#{setting.name}: #{setting.value}"
+      end
+      if setting.name == "ImageNewsUrlBase"
+        @@ImageNewsUrlBase = setting.value
+        #puts "#{setting.name}: #{setting.value}"
+      end
+      if setting.name == "VideoNewsDirBase"
+        if File.directory?(setting.value)
+          @@VideoNewsDirBase = setting.value
+        else
+          puts "#{setting.name}: No such directory <#{setting.value}>"
+        end
+        #puts "#{setting.name}: #{setting.value}"
+      end
+      if setting.name == "ImageNewsDirBase"
+        if File.directory?(setting.value)
+          @@ImageNewsDirBase = setting.value
+        else
+          puts "#{setting.name}: No such directory <#{setting.value}>"
+        end
+        #puts "#{setting.name}: #{setting.value}"
+      end
     end
     #puts "\n"
   end
@@ -45,6 +77,18 @@ class Setting < ActiveRecord::Base
   def self.ExitNow()
     return @@ExitNow
   end
+  def self.VideoNewsUrlBase()
+    return @@VideoNewsUrlBase
+  end
+  def self.ImageNewsUrlBase()
+    return @@ImageNewsUrlBase
+  end
+  def self.VideoNewsDirBase()
+    return @@VideoNewsDirBase
+  end
+  def self.ImageNewsDirBase()
+    return @@ImageNewsDirBase
+  end
 end
 
 class VideoEntry < ActiveRecord::Base
@@ -52,11 +96,11 @@ class VideoEntry < ActiveRecord::Base
   @@yahoo_search_prefix = "";
   @@google_search_suffix = "";
   @@yahoo_search_suffix = "";
-  def self.init()
+  def self.init() # VideoEntry
     init_google_search_prefix_suffix();
     init_yahoo_search_prefix_suffix();
   end
-  def self.init_google_search_prefix_suffix()
+  def self.init_google_search_prefix_suffix() # VideoEntry
     @@google_search_prefix = "http://www.google.com/search?tbm=vid&q=%22"
     @@google_search_suffix = "%22" # surround the search keyword string with single quotes
     @@google_search_suffix += "&pws=0"
@@ -74,13 +118,13 @@ class VideoEntry < ActiveRecord::Base
     @@google_search_suffix += "&safe=active"
     @@google_video_play_prefix = "http://www.google.com"
   end
-  def self.init_yahoo_search_prefix_suffix()
+  def self.init_yahoo_search_prefix_suffix() # VideoEntry
     @@yahoo_search_prefix = "http://video.search.yahoo.com/search/video?p=%22"
     @@yahoo_search_suffix = "%22" # surround the search keyword string with single quotes
     @@yahoo_search_suffix += "&ei=utf-8&sort=new" # latest items first
     @@yahoo_video_play_prefix = "http://video.search.yahoo.com"
   end
-  def self.get_search_url(keyword_string, search_source)
+  def self.get_search_url(keyword_string, search_source) # VideoEntry
     if search_source =~ /google/i
       keyword_string.strip!
       return @@google_search_prefix + URI::encode(keyword_string) + 
@@ -93,7 +137,7 @@ class VideoEntry < ActiveRecord::Base
       return nil
     end
   end  
-  def self.get_url_from_search_item(item, source)
+  def self.get_url_from_search_item(item, source) # VideoEntry
     url = item.search('a').first['href']
     if url 
       url = URI::decode(url)
@@ -138,7 +182,7 @@ class VideoEntry < ActiveRecord::Base
     return url
   end
   
-  def self.add_entry(item, keyword_string, source)
+  def self.add_entry(item, keyword_string, source) # VideoEntry
     # get the url and html for each item 
     url = get_url_from_search_item(item, source)
     if not url 
@@ -158,6 +202,16 @@ class VideoEntry < ActiveRecord::Base
       img = item.search("img/@src").first
       if(img)
         image_src = img.value
+        #tmpfilename = Dir::Tmpname.make_tmpname("image_", nil)
+        tmpfilename = UUIDTools::UUID.timestamp_create
+        tmpfilenamefull = Setting.VideoNewsDirBase + "/image_" + tmpfilename 
+        #uri = URI.parse(url).merge(URI.parse(image_src)).to_s
+        uri = URI.parse(image_src).to_s
+        File.open(tmpfilenamefull,'wb'){ |f| 
+          f.write(open(uri).read) 
+          image_src = Setting.VideoNewsUrlBase+"/image_"+tmpfilename
+          puts "changed image link to #{image_src}"
+        }
       end
       position = (url =~ /\&tit\=/i)
       if (position)
@@ -254,7 +308,7 @@ class VideoEntry < ActiveRecord::Base
     video_search_url = VideoEntry.get_search_url(keyword_string, keywords_entry.source)
     if video_search_url 
       puts "video search_url = #{video_search_url}"
-      doc = Nokogiri::HTML(open(video_search_url))
+      doc = Nokogiri::HTML(File.read(open(video_search_url, URL_OPEN_HEADERS_HASH).path))
       if keywords_entry.source =~ /google/i
         li = doc.search('li')
         puts "**BEGIN video element list: for keywords <#{keyword_string}>"
@@ -351,6 +405,16 @@ class ImageEntry < ActiveRecord::Base
       img = item.search("img/@src").first
       if(img)
         image_src = img.value
+        #tmpfilename = Dir::Tmpname.make_tmpname("image_", nil)
+        tmpfilename = UUIDTools::UUID.timestamp_create
+        tmpfilenamefull = Setting.ImageNewsDirBase + "/image_" + tmpfilename 
+        #uri = URI.parse(url).merge(URI.parse(image_src)).to_s
+        uri = URI.parse(image_src).to_s
+        File.open(tmpfilenamefull,'wb'){ |f| 
+          f.write(open(uri).read) 
+          image_src = Setting.ImageNewsUrlBase+"/image_"+tmpfilename
+          puts "changed image link to #{image_src}"
+        }
       end
       # get title from the name attribute in url
       position = (url =~ /\&name\=/i)
@@ -390,7 +454,7 @@ class ImageEntry < ActiveRecord::Base
     image_search_url = ImageEntry.get_search_url(keyword_string, keywords_entry.source)
     if image_search_url 
       puts "image search_url = #{image_search_url}"
-      doc = Nokogiri::HTML(open(image_search_url))
+      doc = Nokogiri::HTML(File.read(open(image_search_url, URL_OPEN_HEADERS_HASH).path))
       if keywords_entry.source =~ /google/i
         li = doc.search('li')
         puts "**BEGIN image element list: for keywords <#{keyword_string}>"
@@ -497,7 +561,7 @@ class AudioEntry < ActiveRecord::Base
     audio_search_url = AudioEntry.get_search_url(keyword_string, keywords_entry.source)
     if audio_search_url 
       puts "audio search_url = #{audio_search_url}"
-      doc = Nokogiri::HTML(open(audio_search_url))
+      doc = Nokogiri::HTML(File.read(open(audio_search_url, URL_OPEN_HEADERS_HASH).path))
       if keywords_entry.source =~ /google/i
         li = doc.search('li')
         puts "**BEGIN audio element list: for keywords <#{keyword_string}>"
@@ -611,6 +675,11 @@ class UpdateMediaNews
     #puts "  total audio entries: #{audio_count}, new db audio entries: #{audio_new_entry_count}"
   end # def update
 end #class UpdateMediaNews
+
+
+#if ARGV[0]
+#  rss_images_basename = ARGV[0]
+#end
 
 UpdateMediaNews.init('db/config/database.yml')
 UpdateMediaNews.update()

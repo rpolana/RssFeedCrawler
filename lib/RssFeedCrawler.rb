@@ -1,9 +1,10 @@
+require 'rubygems'
 require 'feedzirra'
 require 'active_record'
 #require 'database_configuration'
 require 'timeout'
 
-FEED_FETCH_AND_PARSE_TIMEOUT_IN_SECONDS = 180
+FEED_FETCH_AND_PARSE_TIMEOUT_IN_SECONDS = 240
 FEED_UPDATE_TIMEOUT_IN_SECONDS = 60
 
 
@@ -14,21 +15,27 @@ class RssEntry < ActiveRecord::Base
     end
     new_entry_count = 0
     feed.entries.each do |entry|
-      #puts "  id=#{entry.id}:"
-      #puts "    published_at=#{entry.published}"
-      #puts "    title=#{entry.title}"
-      #puts "    url=#{entry.url}"
-      #puts "    summary=#{entry.summary}\n"
-      unless exists? :guid => entry.id
-        create!(
-          :source => source,
-          :name => entry.title,
-          :summary => entry.summary,
-          :url => entry.url,
-          :published_at => entry.published,
-          :guid => entry.id
-        )
-        new_entry_count += 1
+      begin
+        #puts "  id=#{entry.id}:"
+        #puts "    published_at=#{entry.published}"
+        #puts "    title=#{entry.title}"
+        #puts "    url=#{entry.url}"
+        #puts "    summary=#{entry.summary}\n"
+        unless exists? :guid => entry.id
+          create!(
+            :source => source,
+            :name => entry.title,
+            :summary => entry.summary,
+            :url => entry.url,
+            :published_at => entry.published,
+            :guid => entry.id
+          )
+          new_entry_count += 1
+        end
+      rescue Exception => e
+        puts DateTime.now.to_s + ": **** Exception while creating rss news entry #{entry.id}: " +
+          e.message.to_s + ": " + e.inspect.to_s + ":  at <#{entry.url}>"
+        # puts e.backtrace  
       end
     end
     return new_entry_count
@@ -42,21 +49,27 @@ class PodcastEntry < ActiveRecord::Base
     end
     new_entry_count = 0
     feed.entries.each do |entry|
-      #puts "  id=#{entry.id}:"
-      #puts "    published_at=#{entry.published}"
-      #puts "    title=#{entry.title}"
-      #puts "    url=#{entry.url}"
-      #puts "    summary=#{entry.summary}\n"
-      unless exists? :guid => entry.id
-        create!(
-          :source => source,
-          :name => entry.title,
-          :summary => entry.summary,
-          :url => entry.url,
-          :published_at => entry.published,
-          :guid => entry.id
-        )
-        new_entry_count += 1
+      begin
+        #puts "  id=#{entry.id}:"
+        #puts "    published_at=#{entry.published}"
+        #puts "    title=#{entry.title}"
+        #puts "    url=#{entry.url}"
+        #puts "    summary=#{entry.summary}\n"
+        unless exists? :guid => entry.id
+          create!(
+            :source => source,
+            :name => entry.title,
+            :summary => entry.summary,
+            :url => entry.url,
+            :published_at => entry.published,
+            :guid => entry.id
+          )
+          new_entry_count += 1
+        end
+      rescue Exception => e
+        puts DateTime.now.to_s + ": **** Exception while creating podcast news entry #{entry.id}: " +
+          e.message.to_s + ": " + e.inspect.to_s + ":  at <#{entry.url}>"
+        # puts e.backtrace  
       end
     end
     return new_entry_count
@@ -91,24 +104,27 @@ class RssFeed < ActiveRecord::Base
             feed = Feedzirra::Feed.fetch_and_parse(rssfeed_url)
           end
         rescue Timeout::Error => te
-          puts DateTime.now.to_s + ": Feed fetch_and_parse timedout:(#{rssfeed_url}) aftr #{FEED_FETCH_AND_PARSE_TIMEOUT_IN_SECONDS}seconds: #{te}"
+          puts DateTime.now.to_s + ": Feed fetch_and_parse timedout:(#{rssfeed_url}) after #{FEED_FETCH_AND_PARSE_TIMEOUT_IN_SECONDS}seconds: #{te}"
         rescue Exception => e
           puts DateTime.now.to_s + ": **** Exception while fetch_and_parse feed at <#{rssfeed_url}>: " +
             e.message.to_s + ": " + e.inspect.to_s
           puts e.backtrace  
         end
-        if (feed==nil) or (feed == 0)
-          new_feeds_map[rssfeed_url] = nil
-          puts "  Feed returned 0 entries"
-        else
+        if (feed.is_a?(Feedzirra::Parser::RSS) and (feed.entries.count > 0))
           new_feeds_map[rssfeed_url] = feed
           if(feed_type == 'podcast') 
             new_entry_count = PodcastEntry.add_entries_to_db_from_feed(feed, source)
           else
             new_entry_count = RssEntry.add_entries_to_db_from_feed(feed, source)
           end
-          puts "  Got entries from <#{rssfeed_url}: total #{feed.entries.count}: new #{new_entry_count}"
+          puts "  Got entries from <#{rssfeed_url}>: total #{feed.entries.count}: new #{new_entry_count}"
           new_entry_count_total += new_entry_count
+        elsif feed.is_a?(Feedzirra::Parser::RSS)
+          new_feeds_map[rssfeed_url] = nil
+          puts "  Feedzirra::Feed.fetch_and_parse feed <#{rssfeed_url}> returned 0 entries"
+        else
+          new_feeds_map[rssfeed_url] = nil
+          puts "  Feedzirra::Feed.fetch_and_parse feed <#{rssfeed_url}> returned #{feed}"
         end
       else
         feed = current_feeds_map[rssfeed_url]
@@ -195,6 +211,7 @@ end
 
 
 ActiveRecord::Base.establish_connection(YAML::load(File.open('db/config/database.yml')))
+puts "\n#{DateTime.now}: **********Initialized DB connection"
 
 #parameters_dir = "Stemlete"
 #rss_feeds_filename = "rss_feeds.txt"
@@ -216,7 +233,7 @@ podcast_feeds_map = Hash.new
 new_podcast_feeds_map = Hash.new
 new_podcast_entry_count = 0
 begin
-  #new_entry_count = RssFeed.update_feeds(feeds_map, new_feeds_map)
+  new_entry_count = RssFeed.update_feeds(feeds_map, new_feeds_map)
   new_podcast_entry_count = PodcastFeed.update_feeds(podcast_feeds_map, 
     new_podcast_feeds_map)
 rescue Exception => e

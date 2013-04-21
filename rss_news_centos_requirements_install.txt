@@ -1,0 +1,85 @@
+[root@stemlete ~]# uname -a
+[root@stemlete ~]# lsb-release -i -r
+[root@stemlete ~]# cat /etc/redhat-release
+[root@stemlete ~]# yum install -y rubygems
+[root@stemlete ~]# ls
+[root@stemlete ~]# cd rubygems-2.0.3/
+[root@stemlete ~]# ls
+[root@stemlete ~]# ruby setup.rb
+[root@stemlete ~]# yum install -y gcc zlib zlib-devel
+[root@stemlete ~]# wget ftp://ftp.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p330.tar.gz
+[root@stemlete ~]# ls
+[root@stemlete ~]# pwd
+[root@stemlete ~]# tar xvf ruby-1.8.7-p330.tar.gz
+[root@stemlete ~]# cd ruby-1.8.7-p330
+[root@stemlete ~]# ./configure --enable-pthread
+[root@stemlete ~]# make
+[root@stemlete ~]# make install
+[root@stemlete ~]# ruby -v
+[root@stemlete ~]# yum install -y rubygems
+[root@stemlete ~]# cd ruby
+[root@stemlete ~]# ls
+[root@stemlete ~]# cd ..
+[root@stemlete ~]# ls
+[root@stemlete ~]# cd rubygems-2.0.3/
+[root@stemlete ~]# ls
+[root@stemlete ~]# setup
+[root@stemlete ~]# ruby setup.rb
+[root@stemlete ~]# gem list
+[root@stemlete ~]# gem install nokogiri
+[root@stemlete ~]# yum remove -y libxml2-devel libxslt-devel
+[root@stemlete ~]# yum install -y gcc  ruby-devel libxml2 libxml2-devel libxslt libxslt-devel
+[root@stemlete ~]# gem install nokogiri
+[root@stemlete ~]# cd ..
+[root@stemlete ~]# pwd
+[root@stemlete ~]# cd rss_news/
+[root@stemlete ~]# ls
+[root@stemlete ~]# gem install activerecord
+[root@stemlete ~]# gem list
+[root@stemlete ~]# gem install feedzirra
+[root@stemlete ~]# yum install -y curl curl-devel
+[root@stemlete ~]# gem install feedzirra
+[root@stemlete ~]# gem install activerecord
+[root@stemlete ~]# ruby -rubygems UpdateMedia.rb 2&1 | tee -a /root/rss_news/UpdateMedia.log
+[root@stemlete ~]# gem install activerecord-mysql2-adapter
+[root@stemlete ~]# alias my
+alias my='mysql -A -u admin -p`cat /etc/psa/.psa.shadow`'
+[root@stemlete ~]# cat /etc/psa/.psa.shadow
+$AES-128-CBC$ibou6f242Ww/JicTTx5hIw==$SveSnz/q0E1Cs11wWsSekQ==[root@stemlete ~]#
+[root@stemlete ~]# cd rss_news/
+[root@stemlete rss_news]# cat db/config/database.yml
+## YAML Template.
+adapter: mysql2
+database: rss_news
+username: root
+password: root
+host: localhost
+[root@stemlete rss_news]# cat /etc/psa/.psa.shadow >> db/config/database.yml
+[root@stemlete rss_news]# vi db/config/database.yml
+
+[root@stemlete rss_news]# gem uninstall activerecord --version=3.2.13
+Successfully uninstalled activerecord-3.2.13
+[root@stemlete rss_news]# gem uninstall activemodel --version=3.2.13
+Successfully uninstalled activemodel-3.2.13
+[root@stemlete rss_news]# gem uninstall activesupport --version=3.2.13
+Successfully uninstalled activesupport-3.2.13
+[root@stemlete rss_news]# gem install activesupport --version=3.1.12
+Successfully installed activesupport-3.1.12
+invalid options: --encoding
+(invalid options are ignored)
+Installing ri documentation for activesupport-3.1.12
+1 gem installed
+[root@stemlete rss_news]# gem install activemodel --version=3.1.12
+Fetching: activemodel-3.1.12.gem (100%)
+Successfully installed activemodel-3.1.12
+Installing ri documentation for activemodel-3.1.12
+1 gem installed
+[root@stemlete rss_news]# gem install activerecord --version=3.1.12
+Fetching: arel-2.2.3.gem (100%)
+Successfully installed arel-2.2.3
+Fetching: activerecord-3.1.12.gem (100%)
+Successfully installed activerecord-3.1.12
+Installing ri documentation for arel-2.2.3
+Installing ri documentation for activerecord-3.1.12
+2 gems installed
+[root@stemlete rss_news]#

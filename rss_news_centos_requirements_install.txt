@@ -1,60 +1,40 @@
 [root@stemlete ~]# uname -a
 [root@stemlete ~]# lsb-release -i -r
+Linux M1-Centos6.4-64bit 2.6.32-358.11.1.el6.x86_64 #1 SMP Wed Jun 12 03:34:52 UTC 2013 x86_64 x86_64 x86_64 GNU/Linux
 [root@stemlete ~]# cat /etc/redhat-release
-[root@stemlete ~]# yum install -y rubygems
-[root@stemlete ~]# ls
-[root@stemlete ~]# cd rubygems-2.0.3/
-[root@stemlete ~]# ls
-[root@stemlete ~]# ruby setup.rb
+CentOS release 6.4 (Final)
 [root@stemlete ~]# yum install -y gcc zlib zlib-devel
 [root@stemlete ~]# wget ftp://ftp.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p330.tar.gz
-[root@stemlete ~]# ls
-[root@stemlete ~]# pwd
 [root@stemlete ~]# tar xvf ruby-1.8.7-p330.tar.gz
 [root@stemlete ~]# cd ruby-1.8.7-p330
 [root@stemlete ~]# ./configure --enable-pthread
 [root@stemlete ~]# make
 [root@stemlete ~]# make install
 [root@stemlete ~]# ruby -v
-[root@stemlete ~]# yum install -y rubygems
-[root@stemlete ~]# cd ruby
-[root@stemlete ~]# ls
-[root@stemlete ~]# cd ..
-[root@stemlete ~]# ls
 [root@stemlete ~]# cd rubygems-2.0.3/
 [root@stemlete ~]# ls
-[root@stemlete ~]# setup
 [root@stemlete ~]# ruby setup.rb
 [root@stemlete ~]# gem list
-[root@stemlete ~]# gem install nokogiri
 [root@stemlete ~]# yum remove -y libxml2-devel libxslt-devel
 [root@stemlete ~]# yum install -y gcc  ruby-devel libxml2 libxml2-devel libxslt libxslt-devel
 [root@stemlete ~]# gem install nokogiri
 [root@stemlete ~]# cd ..
 [root@stemlete ~]# pwd
-[root@stemlete ~]# cd rss_news/
-[root@stemlete ~]# ls
 [root@stemlete ~]# gem install activerecord
 [root@stemlete ~]# gem list
 [root@stemlete ~]# gem install feedzirra
 [root@stemlete ~]# yum install -y curl curl-devel
 [root@stemlete ~]# gem install feedzirra
 [root@stemlete ~]# gem install activerecord
-[root@stemlete ~]# ruby -rubygems UpdateMedia.rb 2&1 | tee -a /root/rss_news/UpdateMedia.log
 [root@stemlete ~]# gem install activerecord-mysql2-adapter
-[root@stemlete ~]# alias my
-alias my='mysql -A -u admin -p`cat /etc/psa/.psa.shadow`'
-[root@stemlete ~]# cat /etc/psa/.psa.shadow
-$AES-128-CBC$ibou6f242Ww/JicTTx5hIw==$SveSnz/q0E1Cs11wWsSekQ==[root@stemlete ~]#
 [root@stemlete ~]# cd rss_news/
 [root@stemlete rss_news]# cat db/config/database.yml
 ## YAML Template.
 adapter: mysql2
 database: rss_news
-username: root
-password: root
+username: <admin-db-user>
+password: <password>
 host: localhost
-[root@stemlete rss_news]# cat /etc/psa/.psa.shadow >> db/config/database.yml
 [root@stemlete rss_news]# vi db/config/database.yml
 
 [root@stemlete rss_news]# gem uninstall activerecord --version=3.2.13
@@ -82,4 +62,134 @@ Successfully installed activerecord-3.1.12
 Installing ri documentation for arel-2.2.3
 Installing ri documentation for activerecord-3.1.12
 2 gems installed
+[root@stemlete rss_news]# gem install uuidtools
+Fetching: uuidtools-2.1.4.gem (100%)
+Successfully installed uuidtools-2.1.4
+Installing ri documentation for uuidtools-2.1.4
+1 gem installed
 [root@stemlete rss_news]#
+
+
+
+The above is sufficient for RssFeedCrawler to work:
+For ImageMagick: yum install ImageMagick ImageMagick-devel; gem install rmagick
+
+[root@M1-Centos6 Downloads]# yum install ImageMagick
+Loaded plugins: fastestmirror, refresh-packagekit, security
+Loading mirror speeds from cached hostfile
+ * base: mirrors.tuna.tsinghua.edu.cn
+ * extras: mirrors.tuna.tsinghua.edu.cn
+ * updates: mirrors.tuna.tsinghua.edu.cn
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package ImageMagick.x86_64 0:6.5.4.7-6.el6_2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================
+ Package                                Arch                              Version                                      Repository                       Size
+=============================================================================================================================================================
+Installing:
+ ImageMagick                            x86_64                            6.5.4.7-6.el6_2                              base                            1.7 M
+
+Transaction Summary
+=============================================================================================================================================================
+Install       1 Package(s)
+
+Total download size: 1.7 M
+Installed size: 6.4 M
+Is this ok [y/N]: y
+Downloading Packages:
+ImageMagick-6.5.4.7-6.el6_2.x86_64.rpm                                                                                                | 1.7 MB     00:04     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : ImageMagick-6.5.4.7-6.el6_2.x86_64                                                                                                        1/1 
+  Verifying  : ImageMagick-6.5.4.7-6.el6_2.x86_64                                                                                                        1/1 
+
+Installed:
+  ImageMagick.x86_64 0:6.5.4.7-6.el6_2                                                                                                                       
+
+Complete!
+[root@M1-Centos6 Downloads]# which convert
+/usr/bin/convert
+
+[root@M1-Centos6 Downloads]# yum install ImageMagick-devel
+Loaded plugins: fastestmirror, refresh-packagekit, security
+Loading mirror speeds from cached hostfile
+ * base: mirrors.btte.net
+ * extras: ftp.cs.pu.edu.tw
+ * updates: mirrors.btte.net
+Setting up Install Process
+Resolving Dependencies
+--> Running transaction check
+---> Package ImageMagick-devel.x86_64 0:6.5.4.7-6.el6_2 will be installed
+--> Processing Dependency: libtiff-devel for package: ImageMagick-devel-6.5.4.7-6.el6_2.x86_64
+--> Processing Dependency: lcms-devel for package: ImageMagick-devel-6.5.4.7-6.el6_2.x86_64
+--> Processing Dependency: jasper-devel for package: ImageMagick-devel-6.5.4.7-6.el6_2.x86_64
+--> Processing Dependency: ghostscript-devel for package: ImageMagick-devel-6.5.4.7-6.el6_2.x86_64
+--> Running transaction check
+---> Package ghostscript-devel.x86_64 0:8.70-15.el6_4.1 will be installed
+---> Package jasper-devel.x86_64 0:1.900.1-15.el6_1.1 will be installed
+---> Package lcms-devel.x86_64 0:1.19-1.el6 will be installed
+---> Package libtiff-devel.x86_64 0:3.9.4-9.el6_3 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+=============================================================================================================================================================
+ Package                                   Arch                           Version                                      Repository                       Size
+=============================================================================================================================================================
+Installing:
+ ImageMagick-devel                         x86_64                         6.5.4.7-6.el6_2                              base                             86 k
+Installing for dependencies:
+ ghostscript-devel                         x86_64                         8.70-15.el6_4.1                              updates                          42 k
+ jasper-devel                              x86_64                         1.900.1-15.el6_1.1                           base                            374 k
+ lcms-devel                                x86_64                         1.19-1.el6                                   base                             49 k
+ libtiff-devel                             x86_64                         3.9.4-9.el6_3                                base                            468 k
+
+Transaction Summary
+=============================================================================================================================================================
+Install       5 Package(s)
+
+Total download size: 1.0 M
+Installed size: 2.5 M
+Is this ok [y/N]: y
+Downloading Packages:
+(1/5): ImageMagick-devel-6.5.4.7-6.el6_2.x86_64.rpm                                                                                   |  86 kB     00:00     
+(2/5): ghostscript-devel-8.70-15.el6_4.1.x86_64.rpm                                                                                   |  42 kB     00:00     
+(3/5): jasper-devel-1.900.1-15.el6_1.1.x86_64.rpm                                                                                     | 374 kB     00:00     
+(4/5): lcms-devel-1.19-1.el6.x86_64.rpm                                                                                               |  49 kB     00:00     
+(5/5): libtiff-devel-3.9.4-9.el6_3.x86_64.rpm                                                                                         | 468 kB     00:00     
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total                                                                                                                        450 kB/s | 1.0 MB     00:02     
+Running rpm_check_debug
+Running Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing : libtiff-devel-3.9.4-9.el6_3.x86_64                                                                                                        1/5 
+  Installing : ghostscript-devel-8.70-15.el6_4.1.x86_64                                                                                                  2/5 
+  Installing : jasper-devel-1.900.1-15.el6_1.1.x86_64                                                                                                    3/5 
+  Installing : lcms-devel-1.19-1.el6.x86_64                                                                                                              4/5 
+  Installing : ImageMagick-devel-6.5.4.7-6.el6_2.x86_64                                                                                                  5/5 
+  Verifying  : ImageMagick-devel-6.5.4.7-6.el6_2.x86_64                                                                                                  1/5 
+  Verifying  : lcms-devel-1.19-1.el6.x86_64                                                                                                              2/5 
+  Verifying  : jasper-devel-1.900.1-15.el6_1.1.x86_64                                                                                                    3/5 
+  Verifying  : ghostscript-devel-8.70-15.el6_4.1.x86_64                                                                                                  4/5 
+  Verifying  : libtiff-devel-3.9.4-9.el6_3.x86_64                                                                                                        5/5 
+
+Installed:
+  ImageMagick-devel.x86_64 0:6.5.4.7-6.el6_2                                                                                                                 
+
+Dependency Installed:
+  ghostscript-devel.x86_64 0:8.70-15.el6_4.1  jasper-devel.x86_64 0:1.900.1-15.el6_1.1  lcms-devel.x86_64 0:1.19-1.el6  libtiff-devel.x86_64 0:3.9.4-9.el6_3 
+
+Complete!
+[root@M1-Centos6 Downloads]# gem install rmagick
+Building native extensions.  This could take a while...
+Successfully installed rmagick-2.13.2
+Installing ri documentation for rmagick-2.13.2
+1 gem installed

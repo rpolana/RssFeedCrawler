@@ -1,0 +1,12 @@
+Unzip curl-7.24.0-devel-mingw32.zip (included in this project) into C:\ and install curb using the 
+following command:
+
+C:\Users\admin>gem install curb -- --with-curl-lib="C:\curl-7.24.0-devel-mingw32
+\bin" --with-curl-include="C:\curl-7.24.0-devel-mingw32\include"
+Temporarily enhancing PATH to include DevKit...
+Building native extensions with: '--with-curl-lib=C:\curl-7.24.0-devel-mingw32\b
+in --with-curl-include=C:\curl-7.24.0-devel-mingw32\include'
+This could take a while...
+Successfully installed curb-0.8.3
+Installing ri documentation for curb-0.8.3
+1 gem installed

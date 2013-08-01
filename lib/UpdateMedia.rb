@@ -212,6 +212,9 @@ class VideoEntry < ActiveRecord::Base
           image_src = Setting.VideoNewsUrlBase+"/image_"+tmpfilename
           puts "changed image link to #{image_src}"
         }
+      else
+        puts "no image link found #{item}"
+        return 0
       end
       position = (url =~ /\&tit\=/i)
       if (position)

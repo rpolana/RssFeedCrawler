@@ -98,7 +98,7 @@ class RssFeed < ActiveRecord::Base
       source = rss_feed.title
       feed = nil
       if not current_feeds_map.include?(rssfeed_url)
-        puts DateTime.now.to_s + ": Fetching entries from #{source}:<#{rssfeed_url}>:"
+        puts DateTime.now.to_s + ": Fetching #{feed_type} entries from #{source}:<#{rssfeed_url}>:"
         begin
           Timeout::timeout(FEED_FETCH_AND_PARSE_TIMEOUT_IN_SECONDS) do
             feed = Feedzirra::Feed.fetch_and_parse(rssfeed_url)
@@ -117,7 +117,7 @@ class RssFeed < ActiveRecord::Base
           else
             new_entry_count = RssEntry.add_entries_to_db_from_feed(feed, source)
           end
-          puts "  Got entries from <#{rssfeed_url}>: total #{feed.entries.count}: new #{new_entry_count}"
+          puts "  Got #{feed_type} entries from <#{rssfeed_url}>: total #{feed.entries.count}: new #{new_entry_count}"
           new_entry_count_total += new_entry_count
         elsif feed.is_a?(Feedzirra::Parser::RSS)
           new_feeds_map[rssfeed_url] = nil
@@ -233,7 +233,7 @@ podcast_feeds_map = Hash.new
 new_podcast_feeds_map = Hash.new
 new_podcast_entry_count = 0
 begin
-  new_entry_count = RssFeed.update_feeds(feeds_map, new_feeds_map)
+  # new_entry_count = RssFeed.update_feeds(feeds_map, new_feeds_map)
   new_podcast_entry_count = PodcastFeed.update_feeds(podcast_feeds_map, 
     new_podcast_feeds_map)
 rescue Exception => e
@@ -261,6 +261,11 @@ puts "\n#{DateTime.now}:**********Initial podcast entries: count in database: " 
 #  puts "  summary=#{entry.summary}\n"
 #end
 
+# RP: 26Apr2013: Exit after first crawl if the UpdatePeriodInSeconds setting is negative
+if(Setting.UpdatePeriod()<1)
+  puts "\n#{DateTime.now}:Exiting the news crawl as indicated by a negative UpdatePeriodInSeconds setting"
+  exit 0
+end
 
 duration_from_last_update = 0
 while (true)

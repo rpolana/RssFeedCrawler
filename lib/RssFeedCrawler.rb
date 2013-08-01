@@ -3,78 +3,11 @@ require 'feedzirra'
 require 'active_record'
 #require 'database_configuration'
 require 'timeout'
+require 'RssEntry'
 
 FEED_FETCH_AND_PARSE_TIMEOUT_IN_SECONDS = 240
 FEED_UPDATE_TIMEOUT_IN_SECONDS = 60
 
-
-class RssEntry < ActiveRecord::Base
-  def self.add_entries_to_db_from_feed(feed, source)
-    if not feed
-      return 0
-    end
-    new_entry_count = 0
-    feed.entries.each do |entry|
-      begin
-        #puts "  id=#{entry.id}:"
-        #puts "    published_at=#{entry.published}"
-        #puts "    title=#{entry.title}"
-        #puts "    url=#{entry.url}"
-        #puts "    summary=#{entry.summary}\n"
-        unless exists? :guid => entry.id
-          create!(
-            :source => source,
-            :name => entry.title,
-            :summary => entry.summary,
-            :url => entry.url,
-            :published_at => entry.published,
-            :guid => entry.id
-          )
-          new_entry_count += 1
-        end
-      rescue Exception => e
-        puts DateTime.now.to_s + ": **** Exception while creating rss news entry #{entry.id}: " +
-          e.message.to_s + ": " + e.inspect.to_s + ":  at <#{entry.url}>"
-        # puts e.backtrace  
-      end
-    end
-    return new_entry_count
-  end
-end
-
-class PodcastEntry < ActiveRecord::Base
-  def self.add_entries_to_db_from_feed(feed, source)
-    if not feed
-      return 0
-    end
-    new_entry_count = 0
-    feed.entries.each do |entry|
-      begin
-        #puts "  id=#{entry.id}:"
-        #puts "    published_at=#{entry.published}"
-        #puts "    title=#{entry.title}"
-        #puts "    url=#{entry.url}"
-        #puts "    summary=#{entry.summary}\n"
-        unless exists? :guid => entry.id
-          create!(
-            :source => source,
-            :name => entry.title,
-            :summary => entry.summary,
-            :url => entry.url,
-            :published_at => entry.published,
-            :guid => entry.id
-          )
-          new_entry_count += 1
-        end
-      rescue Exception => e
-        puts DateTime.now.to_s + ": **** Exception while creating podcast news entry #{entry.id}: " +
-          e.message.to_s + ": " + e.inspect.to_s + ":  at <#{entry.url}>"
-        # puts e.backtrace  
-      end
-    end
-    return new_entry_count
-  end
-end
 
 class RssFeed < ActiveRecord::Base
   def self.update_feeds(current_feeds_map, new_feeds_map, feed_type = 'news')
@@ -264,7 +197,7 @@ puts "\n#{DateTime.now}:**********Initial podcast entries: count in database: " 
 # RP: 26Apr2013: Exit after first crawl if the UpdatePeriodInSeconds setting is negative
 if(Setting.UpdatePeriod()<1)
   puts "\n#{DateTime.now}:Exiting the news crawl as indicated by a negative UpdatePeriodInSeconds setting"
-  exit 0
+  exit
 end
 
 duration_from_last_update = 0
@@ -275,7 +208,7 @@ while (true)
   Setting.update_settings()
   if(Setting.ExitNow() != 0)
     puts "#{DateTime.now}: Exiting..."
-    exit 0
+    exit
   end
   if( Setting.RefreshNow() != 0) or 
         (duration_from_last_update >= Setting.UpdatePeriod())

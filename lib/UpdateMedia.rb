@@ -6,6 +6,10 @@ require 'nokogiri'
 require 'open-uri'
 require 'uri'
 require 'uuidtools'
+# RamP: 30Jul2013: adding resize to reduce large images using RMagick: begin
+  require 'RMagick'
+# RamP: 30Jul2013: adding resize to reduce large images: end
+           
 
 MEDIA_UPDATE_PERIOD_IN_HOURS = 24
 SEARCH_TIMEOUT_IN_SECONDS = 600
@@ -415,6 +419,15 @@ class ImageEntry < ActiveRecord::Base
         uri = URI.parse(image_src).to_s
         File.open(tmpfilenamefull,'wb'){ |f| 
           f.write(open(uri).read) 
+          f.close()
+          # RamP: 30Jul2013: adding resize to reduce large images: begin
+          magic_image = Magick::Image::read(tmpfilenamefull).first();
+          if(magic_image)
+              magic_image.resize_to_fit!(256, 256)
+              magic_image.write(tmpfilenamefull)
+              magic_image.destroy!
+          end
+          # RamP: 30Jul2013: adding resize to reduce large images: end
           image_src = Setting.ImageNewsUrlBase+"/image_"+tmpfilename
           puts "changed image link to #{image_src}"
         }

@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'active_record'
 #require 'database_configuration'
 require 'timeout'
@@ -52,7 +53,13 @@ class PodcastFeed < ActiveRecord::Base
         if (line_fields.size >=2)
           link = line_fields[0]
           link_length = link.size
-          unless (link_length == 0) or (exists? :link => link)
+          if (link_length == 0) or (exists? :link => link) 
+            if (link_length >0) 
+              title = line[(link_length+1)..-2]
+              item = find_by_link(link)
+              puts "Ignoring existing feed #{new_entry_count}: link <#{link}> with title <#{title}> at index #{item.id}"
+            end
+          else
             title = line[(link_length+1)..-2]
             create!(
               :link => link,
